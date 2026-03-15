@@ -1,0 +1,58 @@
+<footer class="premium-footer">
+  <div class="footer__main-grid">
+
+    <!-- Column 1: The Newsletter Retention Engine - Hook: Focus on exclusivity -->
+    <div class="footer__column newsletter-column">
+      <h4 class="footer__title">Get Early Access</h4>
+      <p class="footer__subtitle">Be the first to know about new gadget drops, exclusive deals, and the future of smart living.</p>
+      <form class="newsletter__form" (submit)="subscribeToNewsletter()">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Column 2: Shop Links - Action-oriented and clear -->
+    <div class="footer__column">
+      <h4 class="footer__title">Shop by Category</h4>
+      <a routerLink="/item/category/Pet Tech" class="footer__link">Pet Tech</a>
+      <a routerLink="/item/category/Smart Home" class="footer__link">Smart Home</a>
+      <a routerLink="/item/category/Wellness" class="footer__link">Wellness & Recovery</a>
+      <a routerLink="/item/category/Bundles" class="footer__link">Smart Bundles</a>
+    </div>
+
+    <!-- Column 3: Customer Care - Focused on support and trust -->
+    <div class="footer__column">
+      <h4 class="footer__title">Customer Support</h4>
+      <a routerLink="/contact" class="footer__link">Contact Us</a>
+      <a routerLink="/our-story" class="footer__link">Our Story</a>
+      <a routerLink="/faq" class="footer__link">FAQ</a>
+      <a routerLink="/shipping-returns" class="footer__link">Shipping & Returns</a>
+    </div>
+
+    <!-- Column 4: Socials and Brand Reinforcement -->
+    <div class="footer__column brand-column">
+      <a routerLink="/" class="footer__logo">
+          <img src="../../assets/frugool logo tranparent.png" alt="frugool logo" height="100%" width="100%" />
+      </a>
+      <div class="footer__socials">
+        <!-- Social media icons would be placed here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- The Bottom Bar for Legal & Payments -->
+  <div class="footer__bottom">
+    <p class="footer__copyright">© {{ currentYear }} Frugool. All Rights Reserved.</p>
+    <!-- CRITICAL: Add BNPL logos for SA market trust -->
+    <div class="footer__payment-icons">
+      <img src="path/to/payflex-logo.svg" alt="Payflex" title="Pay with Payflex">
+      <img src="path/to/payjustnow-logo.svg" alt="PayJustNow" title="Pay with PayJustNow">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="Mastercard">
+    </div>
+    <div class="footer__legal-links">
+      <a routerLink="/terms-of-use">Terms of Use</a>
+      <a routerLink="/privacy-policy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>

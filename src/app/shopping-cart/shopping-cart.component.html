@@ -1,0 +1,88 @@
+<div class="cart-page-premium">
+  <div class="cart-header">
+    <h1 class="cart-title">Your Cart</h1> <!-- Shorter, more standard, less formal -->
+    <a [routerLink]="['/item/display', 'All']" class="continue-shopping">← Continue Shopping</a>
+  </div>
+
+  <div *ngIf="cartItems && cartItems.length > 0; else emptyCart">
+    <!-- The Free Shipping Incentive Bar - A powerful psychological hook -->
+    <div class="free-shipping-tracker" *ngIf="!hasFreeShipping()">
+      <!-- Framing it as an "Add-on" feels like a bonus, not a requirement -->
+      <p>Add <strong>R{{ amountUntilFreeShipping.toFixed(2) }}</strong> more to unlock FREE shipping!</p>
+      <div class="progress-bar">
+        <div class="progress-bar__filled" [style.width.%]="shippingProgressPercentage"></div>
+      </div>
+    </div>
+    <div class="free-shipping-tracker achieved" *ngIf="hasFreeShipping()">
+      <!-- Reinforce their smart decision -->
+      <p><strong>Congratulations! You've qualified for FREE Shipping!</strong> 🎉</p>
+    </div>
+
+    <!-- The Main Cart Grid -->
+    <div class="cart-premium-grid">
+      <!-- Left Column: Items List -->
+      <div class="cart__items-list">
+        <div class="premium-cart-item" *ngFor="let item of cartItems">
+          <img [src]="item.image" alt="{{ item.name }}" class="item-image" />
+          <div class="item-details">
+            <a [routerLink]="['/listItem', item.id]" class="item-name">{{ item.name }}</a>
+            <!-- Social Proof / Urgency Hook -->
+            <p class="item-stock">✓ In Stock & Ready to Ship</p>
+            <button class="remove-btn" (click)="removeItem(item.id)">
+              <i class="icon-trash"></i> Remove
+            </button>
+          </div>
+          <div class="item-quantity-selector">
+            <button (click)="decreaseQuantity(item)">-</button>
+            <input type="number" [value]="item.qty" (change)="updateQuantity(item, $event)" min="1">
+            <button (click)="increaseQuantity(item)">+</button>
+          </div>
+          <div class="item-price">
+            R{{ (item.price * item.qty).toFixed(2) }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Order Summary -->
+      <div class="cart__summary">
+        <h3 class="summary-title">Order Summary</h3>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>R{{ totalPrice.toFixed(2) }}</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <!-- Clearer language for the shipping calculation -->
+          <span>{{ hasFreeShipping() ? 'FREE' : 'R' + shippingCost.toFixed(2) }}</span>
+        </div>
+        <hr class="summary-divider">
+        <div class="summary-row total">
+          <!-- The word "Total" is clear enough. No need for "Order total" -->
+          <span>Total</span>
+          <span>R{{ (totalPrice + (hasFreeShipping() ? 0 : shippingCost)).toFixed(2) }}</span>
+        </div>
+        <!-- High-conversion CTA: Secure Checkout implies safety -->
+        <button class="checkout-btn" routerLink="/checkout">Proceed to Secure Checkout</button>
+
+        <!-- Trust Builders - Crucial for a tech store -->
+        <div class="trust-builders">
+          <div class="trust-item"><i class="icon-shield"></i> 100% Secure SSL Checkout</div>
+          <div class="trust-item"><i class="icon-warranty"></i> 1-Year Warranty Included</div>
+        </div>
+        <div class="payment-icons">
+          <!-- Crucial to add Payflex/PayJustNow logos here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty Cart Template - Updated with Frugool's branding -->
+  <ng-template #emptyCart>
+    <div class="empty-cart-container">
+      <h2>Your Cart is Empty</h2>
+      <p>Your future upgrades are waiting. Find the perfect gadget to start.</p>
+      <!-- Action-oriented CTA for an empty state -->
+      <a routerLink="/item/display/All" class="checkout-btn">Discover Our Gadgets</a>
+    </div>
+  </ng-template>
+</div>

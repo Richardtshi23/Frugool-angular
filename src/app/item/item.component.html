@@ -1,0 +1,97 @@
+<div class="product-page-premium">
+
+  <!-- Main Product Section -->
+  <div class="product-premium-grid">
+
+    <!-- Left Column: Image Gallery -->
+    <div class="product__gallery">
+      <div class="main-image-wrapper">
+        <img [src]="selectedImage || (product.image)" alt="Main product view" class="main-image">
+      </div>
+      <div class="thumbnails">
+        <img *ngFor="let img of product.galleryImages"
+             [src]="img.url"
+             [alt]="img.alt"
+             (click)="selectImage(img.url)"
+             [class.active]="selectedImage === (img.url)">
+      </div>
+    </div>
+
+    <!-- Right Column: The Conversion Zone - REVAMPED FOR FRUGOOL -->
+    <div class="product__details">
+      <h1 class="product__title">{{ product.name }}</h1>
+      <!-- Hook: Benefit-driven and aspirational -->
+      <p class="product__hook">The smart upgrade your life has been waiting for.</p>
+
+      <!-- Clickable Social Proof -->
+      <a class="product__rating-summary" href="#reviews-section" (click)="scrollToReviews($event)">
+        <div class="stars">
+          <ng-container *ngFor="let s of [1,2,3,4,5]"><i class="star" [class.filled]="s <= round(averageRating)">★</i></ng-container>
+        </div>
+        <span>{{ reviews.length }} Customer Reviews</span>
+      </a>
+
+      <!-- Pricing Block with BNPL (Buy Now, Pay Later) - A CRITICAL conversion tool -->
+      <div class="product__price-block">
+        <span class="price">R{{ product.price }}</span>
+        <span *ngIf="product.oldPrice" class="old-price">R{{ product.oldPrice }}</span>
+        <span *ngIf="product.oldPrice" class="sale-badge">SALE</span>
+      </div>
+      <div class="product__bnpl">
+        <span>or 4 interest-free payments of <strong>R{{ (product.price / 4).toFixed(2) }}</strong> with Payflex</span>
+      </div>
+
+
+      <!-- Urgency Block - Using social proof for urgency -->
+      <div class="product__urgency">
+        <span class="stock-indicator low">🔥 Selling Fast!</span> Limited stock available.
+      </div>
+
+      <!-- Actions Block -->
+      <div class="product__actions">
+        <div class="quantity-selector">
+          <button (click)="quantity = quantity > 1 ? quantity - 1 : 1">-</button>
+          <input type="number" [(ngModel)]="quantity" min="1">
+          <button (click)="quantity = quantity + 1">+</button>
+        </div>
+        <button class="cta__add-to-cart" (click)="addToCart()">Add to Cart</button>
+      </div>
+      <button class="cta__buy-now" (click)="buyNow()">Buy It Now</button>
+
+      <!-- Trust Builders - The "Unhappy Customer" Objection Handlers -->
+      <div class="product__trust-builders">
+        <div class="trust-item"><i class="icon-shipping"></i>Fast, Insured Delivery</div>
+        <div class="trust-item"><i class="icon-warranty"></i>1-Year Warranty</div>
+        <div class="trust-item"><i class="icon-support"></i>Local SA Support</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lower Section: Tabs and Reviews -->
+  <div class="product-info-section">
+    <!-- Tabs Navigation - Updated for tech products -->
+    <div class="tabs-nav">
+      <button [class.active]="activeTab === 'description'" (click)="activeTab = 'description'">Overview</button>
+      <button [class.active]="activeTab === 'specs'" (click)="activeTab = 'specs'">Tech Specs</button>
+      <button [class.active]="activeTab === 'reviews'" (click)="activeTab = 'reviews'">Reviews ({{ reviews.length }})</button>
+    </div>
+
+    <!-- Tabs Content -->
+    <div class="tabs-content">
+      <div *ngIf="activeTab === 'description'">
+        <!-- Placeholder copy optimized for conversion -->
+        <p>{{ product.description || 'Discover how this smart gadget solves [problem] with its innovative [feature]. Perfect for anyone looking to simplify their life and embrace modern technology.' }}</p>
+      </div>
+      <div *ngIf="activeTab === 'specs'">
+        <!-- Placeholder copy optimized for building trust -->
+        <p>Compatibility: [e.g., iOS, Android, Matter]. Dimensions: [e.g., 10cm x 5cm]. What's in the box: [e.g., 1x Smart Device, 1x USB-C Cable, 1x User Manual].</p>
+      </div>
+      <div *ngIf="activeTab === 'reviews'" id="reviews-section">
+        <!-- The reviews section logic is perfect as is -->
+        <div class="reviews-premium">
+          <!-- ... all your existing review code ... -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

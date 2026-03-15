@@ -1,0 +1,81 @@
+<div class="auth-page">
+  <!-- Left Column: The Form -->
+  <div class="form-column">
+    <div class="form-container">
+      <!-- Hook: More modern and direct headline -->
+      <h1 class="auth-title">Create Your Account</h1>
+      <p class="auth-subtitle">
+        Already a member? <a routerLink="/login">Log in here</a>
+      </p>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form">
+        <!-- Main Required Fields -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" type="text" formControlName="username" placeholder="Choose a username">
+          <div *ngIf="username.invalid && username.touched" class="error">Username is required.</div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input id="email" type="email" formControlName="email" placeholder="you@example.com">
+          <div *ngIf="email.invalid && email.touched" class="error">A valid email is required.</div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password" placeholder="Minimum 8 characters">
+          <div *ngIf="password.invalid && password.touched" class="error">Password must be at least 8 characters.</div>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Re-enter your password">
+          <div *ngIf="confirmPassword.hasError('mismatch') && confirmPassword.touched" class="error">Passwords do not match.</div>
+        </div>
+
+        <!-- The Optional Address Section (Value proposition remains strong) -->
+        <fieldset formGroupName="address" class="optional-section">
+          <legend>Optional Address <span>(for faster checkout)</span></legend>
+
+          <div class="form-group">
+            <input type="text" formControlName="line1" placeholder="Street Address Line 1">
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="line2" placeholder="Apartment, suite, etc. (optional)">
+          </div>
+          <div class="form-group half-width">
+            <input type="text" formControlName="city" placeholder="City">
+            <input type="text" formControlName="postalCode" placeholder="Postal Code">
+          </div>
+          <div class="form-group half-width">
+            <input type="text" formControlName="province" placeholder="Province / State">
+
+            <div class="select-wrapper">
+              <select formControlName="country">
+                <option value="" disabled>Select Country</option>
+                <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="auth-cta" [disabled]="submitting">
+          {{ submitting ? 'Creating Account...' : 'Create Account' }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Right Column: The Branding & Value Proposition - The CORE sales tactic -->
+  <div class="branding-column">
+    <div class="branding-content">
+      <!-- Hook: "Perks" is a more modern, enticing word than "Blessings" for a tech brand -->
+      <h2>Perks of Joining Frugool</h2>
+      <!-- Value Proposition: Each point is rephrased to be benefit-driven for a tech customer -->
+      <ul>
+        <li><span class="checkmark">✓</span> **Faster, Smarter Checkout:** Save your details for one-click ordering.</li>
+        <li><span class="checkmark">✓</span> **Track Your Gadgets:** Easily view order history and warranty info.</li>
+        <li><span class="checkmark">✓</span> **Get Early Access:** Be the first to know about new tech drops and sales.</li>
+        <li><span class="checkmark">✓</span> **Build Your Wishlist:** Save your favorite future upgrades.</li>
+      </ul>
+    </div>
+  </div>
+</div>

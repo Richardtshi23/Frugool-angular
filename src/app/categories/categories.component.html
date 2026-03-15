@@ -1,0 +1,30 @@
+<div class="blessing-gallery">
+  <!-- Hook: More modern and benefit-driven than "Shop by Category" -->
+  <h1 class="gallery__title">Shop by Lifestyle</h1>
+
+  <div class="gallery__grid">
+    <!-- This loop will now display your Frugool categories from the .ts file -->
+    <div class="category-card" *ngFor="let category of categories">
+      <a [routerLink]="category.link" class="card__link">
+
+        <!-- The background image for the card -->
+        <div class="card__background" [ngStyle]="{'background-image': 'url(' + category.image + ')'}"></div>
+
+        <!-- The dark overlay for text readability -->
+        <div class="card__overlay"></div>
+
+        <!-- The content that sits on top of the image -->
+        <div class="card__content">
+          <h3 class="card__title">{{ category.name }}</h3>
+          <p class="card__tagline">{{ category.tagline }}</p>
+        </div>
+
+        <!-- Call to Action: More exciting and action-oriented -->
+        <span class="card__cta">Explore Collection →</span>
+
+        <!-- The bestseller badge (conditionally shown) -->
+        <span class="card__badge" *ngIf="category.isBestseller">Bestseller</span>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="premium-account-page">
+  <!-- 1. The Personalized Welcome Header -->
+  <header class="account-header">
+    <!-- Hook: More modern and personal greeting -->
+    <h1 class="account-title">Welcome, {{ userName || 'Frugool Member' }}</h1>
+    <!-- Subtitle: Clear, benefit-driven summary of what they can do here -->
+    <p class="account-subtitle">Manage your profile, track your orders, and view your device warranties.</p>
+  </header>
+
+  <div class="account-container">
+    <!-- 2. The Redesigned Sidebar Navigation -->
+    <aside class="account-sidebar">
+      <nav>
+        <!-- Clear, standard, and professional navigation labels -->
+        <a routerLink="details" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Account Details</a>
+        <a routerLink="orders" routerLinkActive="active">My Orders</a>
+        <a routerLink="enquiries" routerLinkActive="active">Support Tickets</a>
+        <a routerLink="email-preferences" routerLinkActive="active">Notification Preferences</a>
+        <button (click)="logOut()" class="logout-btn">Log Out</button>
+      </nav>
+    </aside>
+
+    <!-- 3. The Main Content Area (inside a card) -->
+    <main class="account-main">
+      <div class="account-content-card">
+        <!-- Your forms and lists will be rendered here -->
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>
