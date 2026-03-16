@@ -157,8 +157,8 @@ select {
 .branding-column {
   position: relative;
   background-size: cover;
-  background-image: url('../../assets/bannerfrugool.png');
   background-position: center;
+  background-image: url('../../assets/bannerfrugool.png');
   color: white;
   display: flex;
   align-items: center;
