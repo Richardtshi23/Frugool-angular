@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent {
   constructor(private http: HttpClient) {
-    this.http.get('https://holy-essence-backend-2.onrender.com/api/products/CheckOnline')
+    this.http.get('https://frugool-backend.onrender.com/api/products/CheckOnline')
       .subscribe({
         next: (response) => {
           console.log(response);

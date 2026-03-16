@@ -71,7 +71,7 @@ export class ItemComponent implements OnInit, OnDestroy {
             this.product = data;
 
             // Set initial selected image
-            this.selectedImage = 'https://localhost:7148' + this.product.image;
+            this.selectedImage = this.product.image;
 
             // Mock gallery images if they don't exist on product object for demonstration
             if (!this.product.galleryImages || this.product.galleryImages.length === 0) {

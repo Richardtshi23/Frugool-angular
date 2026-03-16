@@ -31,20 +31,20 @@ export class CategoriesComponent implements OnInit {
       {
         name: 'Smart Home ', 
         image: '../../assets/SoapDispensor.png',
-        link: 'item/category/Oils',
+        link: 'item/category/SmartHome',
         tagline: 'Seamless interaction for home architecture',
         isBestseller: true                 
       },
       {
         name: 'Pet Tech',
         image: '../../assets/PetTechCover.png',
-        link: 'Automate your pets living',
+        link: 'item/category/PetTech',
         tagline: 'Automated care for the modern companion'
       },
       {
         name: 'Wellness & Recovery Tech',
         image: '../../assets/WellnessCoverPhoto.png',
-        link: 'item/category/Apparel',
+        link: 'item/category/Wellness',
         tagline: 'Advanced performance engineering'  
       },
       {
