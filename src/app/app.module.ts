@@ -28,6 +28,8 @@ import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OurMissionComponent } from './our-mission/our-mission.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { ShippingReturnsComponent } from './shipping-returns/shipping-returns.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
     RegisterComponent,
     CheckoutComponent,
     OurMissionComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    ShippingReturnsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

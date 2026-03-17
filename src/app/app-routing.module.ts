@@ -14,6 +14,8 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { AccountEnquiriesComponent } from './account-enquiries/account-enquiries.component';
 import { OurMissionComponent } from './our-mission/our-mission.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component'
+import { ShippingReturnsComponent } from './shipping-returns/shipping-returns.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [{ path: '', component: HomeComponent },
   {
@@ -24,6 +26,8 @@ const routes: Routes = [{ path: '', component: HomeComponent },
   { path: 'item/category/:category/listItem/:id', component: ItemComponent },
   { path: 'adminOrders', component: AdminOrdersComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'shipping-returns', component: ShippingReturnsComponent },
+  { path: 'contact-us', component: ContactUsComponent },
   { path: 'our-mission', component: OurMissionComponent },
   {
     path: 'accountSettings', component: AccountComponent, children: [{path: '', redirectTo: 'details', pathMatch: 'full' },

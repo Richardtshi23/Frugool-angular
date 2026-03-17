@@ -1,0 +1,159 @@
+/* --- ULTRA-PREMIUM SHIPPING & RETURNS PAGE STYLES --- */
+
+.policy-page-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+}
+
+/* Header */
+.policy-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+  .policy-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .policy-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+
+/* Main Two-Column Grid */
+.policy-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* Main Content Column */
+.policy-content {
+  line-height: 1.8;
+  color: #333;
+}
+
+.policy-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.policy-section h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.policy-section p, .policy-section ul {
+  margin-bottom: 1rem;
+}
+
+.policy-section ul {
+  padding-left: 20px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 3rem 0;
+}
+
+.important-note {
+  background-color: #fff4e5;
+  border-left: 4px solid #ff9f1c;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Placeholder Icons */
+.icon-shipping::before {
+  content: '🚚';
+}
+
+.icon-returns::before {
+  content: '🔄';
+}
+
+
+/* Sidebar Summary Column */
+.policy-summary {
+  position: sticky;
+  top: 2rem;
+}
+
+.summary-card {
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+  .summary-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin: 0 0 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+  .summary-item strong {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .summary-item span {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .summary-item a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .policy-page-container {
+    padding: 1rem;
+  }
+
+  .policy-grid {
+    grid-template-columns: 1fr; /* Stack columns on mobile */
+  }
+
+  .policy-summary {
+    position: static;
+    order: -1; /* Move summary to the top on mobile */
+    margin-bottom: 2rem;
+  }
+
+  .policy-header h1 {
+    font-size: 2.2rem;
+  }
+}
